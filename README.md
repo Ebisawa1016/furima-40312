@@ -33,49 +33,58 @@ Things you may want to cover:
 | name:              | string   | null: false             |
 | email:             | string   | null: false             |
 | password:          | string   | null: false             |
-| address:           | string   | null: false             |
+| date_birth         | string   | null: false             |
 | phone:             | string   | null: false             |
 | paymentInfo:       | string   | null: false             |
 | ProfileImage:      | string   | null: false             |
 | created_at:        | datetime | null: false             |
 | update_at:         | datetime | null: false             |
 
-has_many :items
+  has_many :items
+  has_many :addresses
+  has_many :purchases
 
 ## Itemsテーブル:
 
 | Column       | Type     | Options                     |
 | ------------ | -------- | --------------------------- |
-| id           | integer  | null: false,unique: true    |
+| id           | integer  | null: false, unique: true   |
 | user_id      | integer  | null: false                 | 
 | description  | string   | null: false                 | 
 | price        | decimal  | null: false                 | 
-| sold         | boolean  | null: false                 | 
-| sold_at      | datetime | null: false                 |
+| seller       | boolean  | null: false                 | 
+| sold_at      | datetime | null: true                  |
+| status       | string   | null: false                 |
 | created_at   | datetime | null: false                 |
 | updated_at   | datetime | null: false                 |
 
-has_many :item_categories
-has_many :categories, through: :item_categories
+belongs_to :user
+has_many :purchases
 
-## Categoriesテーブル:
-
-| Column       | Type     | Options                     |
-| ------------ | -------- | --------------------------- |
-| id           | integer  | null: false,unique: true    |
-| name         | string   | null: false                 | 
-
-has_many :item_categories
-has_many :items, through: :item_categories
-
-
-## ItemCategoriesテーブル 
+## Addressesテーブル:
 
 | Column       | Type     | Options                     |
 | ------------ | -------- | --------------------------- |
-|item_id:      | integer  | null: false,unique: true    |
-|category_id  | string   | null: false                 | 
+| id           | integer  | null: false, unique: true   |
+| user_id      | string   | null: false                 | 
+| street       | string   | null: false                 | 
+| city         | string   | null: false                 | 
+| state        | string   | null: false                 | 
+| zip_code     | string   | null: false                 | 
 
-belongs_to :item
-belongs_to :category
+belongs_to :user
 
+
+
+## Purchasesテーブル 
+
+| Column        | Type    | Options                   |
+| ------------- | ------- | ------------------------- |
+| id            | integer | null: false, unique: true |
+| item_id       | integer | null: false               |
+| buyer_id      | string  | null: false               |
+| payment_status| string  | null: false               |
+| created_at    | datetime| null: false               |
+
+  belongs_to :user
+  belongs_to :item
