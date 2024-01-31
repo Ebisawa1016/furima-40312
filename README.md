@@ -27,37 +27,55 @@ Things you may want to cover:
 
 ## users テーブル
 
-id: ユーザーID 
-name: ユーザー名
-email: メールアドレス
-password: パスワード
-Address:住所
-Phone Number:電話番号
-Payment Info:支払い情報
-Profile Image:プロフ画像
-created_at: アカウント作成日
-updated_at: アカウント更新日
+| Column             | Type     | Options                 |
+| ------------------ | -------- | ----------------------- |
+| id:                | integer  | null: false,unique: true|
+| name:              | string   | null: false             |
+| email:             | string   | null: false             |
+| password:          | string   | null: false             |
+| address:           | string   | null: false             |
+| phone:             | string   | null: false             |
+| paymentInfo:       | string   | null: false             |
+| ProfileImage:      | string   | null: false             |
+| created_at:        | datetime | null: false             |
+| update_at:         | datetime | null: false             |
+
+has_many :items
 
 ## Itemsテーブル:
 
+| Column       | Type     | Options                     |
+| ------------ | -------- | --------------------------- |
+| id           | integer  | null: false,unique: true    |
+| user_id      | integer  | null: false                 | 
+| description  | string   | null: false                 | 
+| price        | decimal  | null: false                 | 
+| sold         | boolean  | null: false                 | 
+| sold_at      | datetime | null: false                 |
+| created_at   | datetime | null: false                 |
+| updated_at   | datetime | null: false                 |
 
-id: アイテムID 
-user_id: 出品者のユーザーID 
-description: アイテムの説明
-price: 価格
-sold:商品の状況
-sold_at:売れた日時
-created_at: 商品投稿日
-updated_at: 商品情報更新日
+has_many :item_categories
+has_many :categories, through: :item_categories
 
 ## Categoriesテーブル:
 
-id: カテゴリーID 
-name: カテゴリー名
+| Column       | Type     | Options                     |
+| ------------ | -------- | --------------------------- |
+| id           | integer  | null: false,unique: true    |
+| name         | string   | null: false                 | 
+
+has_many :item_categories
+has_many :items, through: :item_categories
+
 
 ## ItemCategoriesテーブル 
 
+| Column       | Type     | Options                     |
+| ------------ | -------- | --------------------------- |
+|item_id:      | integer  | null: false,unique: true    |
+|category_id  | string   | null: false                 | 
 
-item_id: アイテムID 
-category_id: カテゴリーID 
+belongs_to :item
+belongs_to :category
 
