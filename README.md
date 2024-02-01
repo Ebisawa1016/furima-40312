@@ -67,11 +67,12 @@ has_many :purchases
 
 | Column       | Type     | Options                     |
 | ------------ | -------- | --------------------------- |
-| id           | integer  | null: false, unique: true   |
-| street       | string   | null: false                 | 
-| city         | string   | null: false                 | 
-| state        | string   | null: false                 | 
-| zip_code     | string   | null: false                 | 
+| postal_code    | string   | null: false               |
+| prefecture     | string   | null: false               |
+| city           | string   | null: false               |
+| street_address | string   | null: false               |
+| building_name  | string   |                           |
+| phone_number   | string   | null: false       
 
 belongs_to :user
 
