@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="wbf_qaJHkdGwPexPDaj9" name="ページ1">
-        <mxGraphModel dx="2194" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1618" dy="486" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="192" value="&lt;font color=&quot;#d0d0d0&quot;&gt;&lt;span style=&quot;background-color: rgb(60, 60, 60);&quot;&gt;Users&lt;br&gt;&lt;br&gt;id&lt;br&gt;name&lt;br&gt;email&lt;br&gt;password&lt;br&gt;phone&lt;br&gt;paymentinfo&lt;br&gt;profileimage&lt;br&gt;date_birth&lt;br&gt;created_at&lt;br&gt;update_at&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#18141D;" vertex="1" parent="1">
-                    <mxGeometry x="10" y="210" width="130" height="210" as="geometry"/>
+                <mxCell id="192" value="&lt;font color=&quot;#d0d0d0&quot;&gt;&lt;span style=&quot;background-color: rgb(60, 60, 60);&quot;&gt;Users&lt;br&gt;&lt;br&gt;last_name_kanji&lt;br&gt;first_name_kanji&lt;br&gt;last_name_katakana&lt;br&gt;first_name_katakana&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;font color=&quot;#d0d0d0&quot;&gt;&lt;span style=&quot;background-color: rgb(60, 60, 60);&quot;&gt;email&lt;br&gt;password&lt;br&gt;phone&lt;br&gt;paymentinfo&lt;br&gt;profileimage&lt;br&gt;date_birth&lt;br&gt;created_at&lt;br&gt;update_at&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#18141D;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="210" width="130" height="270" as="geometry"/>
                 </mxCell>
                 <mxCell id="197" style="edgeStyle=none;html=1;" edge="1" parent="1" source="193">
                     <mxGeometry relative="1" as="geometry">

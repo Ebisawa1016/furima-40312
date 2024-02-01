@@ -29,16 +29,18 @@ Things you may want to cover:
 
 | Column             | Type     | Options                 |
 | ------------------ | -------- | ----------------------- |
-| id:                | integer  | null: false,unique: true|
-| name:              | string   | null: false             |
-| email:             | string   | null: false             |
-| password:          | string   | null: false             |
+| last_name_kanji    | string   | null: false             |
+| first_name_kanji   | string   | null: false             |
+| last_name_katakana | string   | null: false             |
+| first_name_katakana| string   | null: false             |
+| email              | string   | null: false,unique: true|
+|encrypted_password  | string   | null: false             |
 | date_birth         | string   | null: false             |
-| phone:             | string   | null: false             |
-| paymentInfo:       | string   | null: false             |
-| ProfileImage:      | string   | null: false             |
-| created_at:        | datetime | null: false             |
-| update_at:         | datetime | null: false             |
+| phone              | string   | null: false             |
+| paymentInfo        | string   | null: false             |
+| ProfileImage       | string   | null: false             |
+| created_at         | datetime | null: false             |
+| update_at          | datetime | null: false             |
 
   has_many :items
   has_many :addresses
@@ -66,7 +68,6 @@ has_many :purchases
 | Column       | Type     | Options                     |
 | ------------ | -------- | --------------------------- |
 | id           | integer  | null: false, unique: true   |
-| user_id      | string   | null: false                 | 
 | street       | string   | null: false                 | 
 | city         | string   | null: false                 | 
 | state        | string   | null: false                 | 
@@ -78,13 +79,10 @@ belongs_to :user
 
 ## Purchasesテーブル 
 
-| Column        | Type    | Options                   |
-| ------------- | ------- | ------------------------- |
-| id            | integer | null: false, unique: true |
-| item_id       | integer | null: false               |
-| buyer_id      | string  | null: false               |
-| payment_status| string  | null: false               |
-| created_at    | datetime| null: false               |
+| Column        | Type      | Options                   |
+| ------------- | -------   | ------------------------- |
+| item_id       | references| null: false               |
+| buyer_id      | string    | null: false               |
 
   belongs_to :user
   belongs_to :item
