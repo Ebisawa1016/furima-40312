@@ -35,30 +35,26 @@ Things you may want to cover:
 | first_name_katakana| string   | null: false             |
 | email              | string   | null: false,unique: true|
 |encrypted_password  | string   | null: false             |
-| date_birth         | string   | null: false             |
+| date_birth         | date     | null: false             |
 | phone              | string   | null: false             |
 | paymentInfo        | string   | null: false             |
-| ProfileImage       | string   | null: false             |
 | created_at         | datetime | null: false             |
 | update_at          | datetime | null: false             |
 
   has_many :items
-  has_many :addresses
   has_many :purchases
 
 ## Itemsテーブル:
 
-| Column       | Type     | Options                     |
-| ------------ | -------- | --------------------------- |
-| id           | integer  | null: false, unique: true   |
-| user_id      | integer  | null: false                 | 
-| description  | string   | null: false                 | 
-| price        | decimal  | null: false                 | 
-| seller       | boolean  | null: false                 | 
-| sold_at      | datetime | null: true                  |
-| status       | string   | null: false                 |
-| created_at   | datetime | null: false                 |
-| updated_at   | datetime | null: false                 |
+| Column               | Type        | Options                     |
+| ---------------------| --------    | --------------------------- |
+| user                 | references  | null: false,,unique: true   | 
+| description          | string      | null: false                 | 
+| price                | integer     | null: false                 | 
+| item_status          | string      | null: false                 |
+| shipping_fee_burden  | string      | null: false                 |
+| shipping_area        | string      | null: false                 |
+| ishipping_duration   | string      | null: false                 |
 
 belongs_to :user
 has_many :purchases
