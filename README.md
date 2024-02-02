@@ -43,31 +43,33 @@ Things you may want to cover:
 
 ## Itemsテーブル:
 
-| Column               | Type        | Options                      |
-| ---------------------| --------    | ---------------------------  |
-| user                 | references  | null: false,foreign_key: true|
-| description          | text        | null: false                  | 
-| price                | integer     | null: false                  | 
-| item_name            | string      | null: false                  |
-| item_category        | string      | null: false                  |
-| item_status          | string      | null: false                  |
-| shipping_fee_burden  | string      | null: false                  |
-| shipping_area        | string      | null: false                  |
-| ishipping_duration   | string      | null: false                  |
+| Column                  | Type         | Options                      |
+| ---------------------   | ------------ | ---------------------------  |
+| user                    | references   | null: false,foreign_key: true|
+| description             | text         | null: false                  | 
+| price                   | integer      | null: false                  | 
+| item_name               | string       | null: false                  |
+| category_id             | integer      | null: false                  |
+| status_id               | integer      | null: false                  |
+| shipping_fee_burden_id  | integer      | null: false                  |
+| shipping_area_id        | integer      | null: false                  |
+| shipping_duration_id    | integer      | null: false                  |
 
 belongs_to :user
-has_many :purchases
+has_one :purchase
 
 ## Addressesテーブル:
 
 | Column         | Type     | Options                   |
 | -------------- | -------- | ------------------------- |
-| address_all    | string   | null: false               |
+| postal_code    | string   | null: false               |
+| prefecture     | string   | null: false               |
 | city           | string   | null: false               |
 | street_address | string   | null: false               |
 | building_name  | string   |                           |
 | phone_number   | string   | null: false               |
 
+has_one :purchase
 
 
 ## Purchasesテーブル 
@@ -79,3 +81,4 @@ has_many :purchases
 
   belongs_to :user
   belongs_to :item
+  has_one :purchase
