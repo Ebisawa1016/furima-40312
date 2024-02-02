@@ -71,8 +71,8 @@ has_many :purchases
 | prefecture     | string   | null: false               |
 | city           | string   | null: false               |
 | street_address | string   | null: false               |
-| building_name  | string   |                           |
-| phone_number   | string   | null: false       
+| building_name  | string   | null: false               |
+| phone_number   | string   | null: false               |
 
 belongs_to :user
 
@@ -80,10 +80,10 @@ belongs_to :user
 
 ## Purchasesテーブル 
 
-| Column        | Type      | Options                   |
-| ------------- | -------   | ------------------------- |
-| item_id       | references| null: false               |
-| buyer_id      | string    | null: false               |
+| Column        | Type      | Options                                     |
+| ------------- | --------- | ------------------------------------------- |
+| item_id       | references| null: false,foreign_key: true               |
+| buyer_id      | string    | null: false,foreign_key: true               |
 
   belongs_to :user
   belongs_to :item
