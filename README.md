@@ -63,13 +63,13 @@ has_one :purchase
 | Column         | Type     | Options                   |
 | -------------- | -------- | ------------------------- |
 | postal_code    | string   | null: false               |
-| prefecture     | string   | null: false               |
+| prefecture_id  | integer  | null: false               |
 | city           | string   | null: false               |
 | street_address | string   | null: false               |
 | building_name  | string   |                           |
 | phone_number   | string   | null: false               |
 
-has_one :purchase
+belongs_to :purchase
 
 
 ## Purchasesテーブル 
@@ -81,4 +81,4 @@ has_one :purchase
 
   belongs_to :user
   belongs_to :item
-  has_one :purchase
+  has_one :address

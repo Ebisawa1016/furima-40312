@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="wbf_qaJHkdGwPexPDaj9" name="ページ1">
-        <mxGraphModel dx="2194" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1618" dy="486" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -23,7 +23,7 @@
                         <mxPoint x="-60" y="350" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="194" value="&lt;font color=&quot;#d0d0d0&quot;&gt;&lt;span style=&quot;background-color: rgb(60, 60, 60);&quot;&gt;address&lt;br&gt;&lt;br&gt;postal_code&lt;br&gt;prefecture&lt;br&gt;city&lt;br&gt;street_address&lt;br&gt;building_name&lt;br&gt;phone_number&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#18141D;" vertex="1" parent="1">
+                <mxCell id="194" value="&lt;font color=&quot;#d0d0d0&quot;&gt;&lt;span style=&quot;background-color: rgb(60, 60, 60);&quot;&gt;address&lt;br&gt;&lt;br&gt;postal_code&lt;br&gt;prefecture_id&lt;br&gt;city&lt;br&gt;street_address&lt;br&gt;building_name&lt;br&gt;phone_number&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#18141D;" vertex="1" parent="1">
                     <mxGeometry x="-380" y="260" width="120" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="196" style="edgeStyle=none;html=1;entryX=1.002;entryY=0.868;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="195" target="192">
