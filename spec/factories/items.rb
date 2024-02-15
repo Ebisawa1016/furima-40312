@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    user
     description { "Sample description" }
     price { 1000 }
     item_name { "Sample item" }
