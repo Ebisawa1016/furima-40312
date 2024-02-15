@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  private
+
   def item_params
     params.require(:item).permit(:description, :item_name, :category_id, :status_id, :shipping_fee_burden_id, :prefecture_id, :shipping_duration_id, :price, :image)
    end
