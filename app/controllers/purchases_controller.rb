@@ -1,37 +1,48 @@
 class PurchasesController < ApplicationController
+before_action :authenticate_user!, only: [:index] 
+before_action :set_item, only: [:create]
 include ActiveModel::Model
   attr_accessor :token
 
   def index
+    @purchase_address = PurchaseAddress.new
+    @item = Item.find(params[:item_id])
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @purchase = Purchase.new
-  end
-
-  def create
-    @purchase = Purchase.new(order_params)
-    if @purchase.valid?
-      pay_item
-      @purchase.save
-      return redirect_to root_path
-    else
-      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-      render 'index', status: :unprocessable_entity
+    if current_user == @item.user
+      redirect_to root_path
     end
   end
 
 
-  private
-
-  def purchase_params
-    params.require(:purchase).permit(:price).merge(token: params[:token])
+  def create
+    @purchase_address = PurchaseAddress.new(purchase_params)
+    @item = Item.find(params[:item_id])
+    if @purchase_address.valid?
+      @purchase_address.save
+      redirect_to root_path
+    else
+      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+      render :index, status: :unprocessable_entity
+    end
   end
 
-  def pay_item
-  Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-  Payjp::Charge.create(
-    amount: order_params[:price],  # 商品の値段
-    card: order_params[:token],    # カードトークン
-    currency: 'jpy'                 # 通貨の種類（日本円）
-  )
-end
+  
+  private
+  
+  def check_user_authentication
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
+  
+  def purchase_params
+    params.require(:purchase_address).permit(:postal_code, :prefecture_id, :city, :street_address, :building_name, :phone_number).merge(user_id: current_user.id,item_id: @item.id )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  
 end
