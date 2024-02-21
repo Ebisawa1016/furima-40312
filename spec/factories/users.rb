@@ -6,7 +6,7 @@ FactoryBot.define do
     last_name_katakana    { 'ヤマダ' }  # 独自のメソッドを用いるなどして、ランダムでかつカタカナの名前を生成してください
     first_name_katakana   { 'タロウ' }  # 同上
     date_birth            { Faker::Date.birthday } 
-    email                 { Faker::Internet.free_email }
+    email {Faker::Internet.email}
     password              { '1a' + Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
   end
