@@ -71,6 +71,7 @@ describe '住所の登録' do
     it '建物名が空でも保存できること' do
       @purchase_address.building_name = nil
       expect(@purchase_address).to be_valid
+    end
 
     it "userが空の場合登録できない" do
       @purchase_address.user_id = nil
