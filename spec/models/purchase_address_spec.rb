@@ -68,11 +68,6 @@ describe '住所の登録' do
       expect(@purchase_address.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
     end
 
-    it "建物が任意でも大丈夫" do
-      @purchase_address.building_name = nil
-      @purchase_address.valid?
-    end
-
     it "userが空の場合登録できない" do
       @purchase_address.user_id = nil
       @purchase_address.valid?
