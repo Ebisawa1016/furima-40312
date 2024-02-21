@@ -1,15 +1,13 @@
 class PurchasesController < ApplicationController
 before_action :authenticate_user!, only: [:index] 
-before_action :set_item, only: [:create]
-include ActiveModel::Model
-  attr_accessor :token
+before_action :set_item, only: [:create, :index]
+
 
   def index
     @purchase_address = PurchaseAddress.new
-    @item = Item.find(params[:item_id])
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
 
-    if current_user == @item.user
+    if current_user == @item.user || @item.purchase.present?
       redirect_to root_path
     end
   end
@@ -17,7 +15,6 @@ include ActiveModel::Model
 
   def create
     @purchase_address = PurchaseAddress.new(purchase_params)
-    @item = Item.find(params[:item_id])
     if @purchase_address.valid?
       pay_item
       @purchase_address.save
@@ -27,7 +24,6 @@ include ActiveModel::Model
       render :index, status: :unprocessable_entity
     end
   end
-
   
   private
   
@@ -53,5 +49,6 @@ include ActiveModel::Model
       card: purchase_params[:token],    
       currency: 'jpy'                
     )
-  end
+    
+end
 end
