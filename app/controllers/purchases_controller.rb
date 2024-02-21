@@ -26,14 +26,7 @@ before_action :set_item, only: [:create, :index]
   end
   
   private
-  
-  def check_user_authentication
-    unless user_signed_in?
-      redirect_to root_path
-    end
-  end
-
-  
+    
   def purchase_params
     params.require(:purchase_address).permit(:postal_code, :prefecture_id, :city, :street_address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: @item.id, token: params[:token])
   end

@@ -62,10 +62,28 @@ describe '住所の登録' do
       expect(@purchase_address.errors.full_messages).to include("Phone number is invalid. Input half-width numbers")
     end
 
-    it "電話番号は10文字以下では登録できない" do
+    it "電話番号は9文字以下では登録できない" do
       @purchase_address.phone_number = 123456789
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
+    end
+
+    it "建物が任意でも大丈夫" do
+      @purchase_address.building_name = nil
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).not_to include("Building name can't be blank")
+    end
+
+    it "userが空の場合登録できない" do
+      @purchase_address.user_id = nil
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+    end
+
+    it "userが空の場合登録できない" do
+      @purchase_address.item_id = nil
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
     end
 
    end
