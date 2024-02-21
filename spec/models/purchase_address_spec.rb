@@ -12,6 +12,10 @@ describe '住所の登録' do
     it "すべての情報が正しく入力できていれば購入ができる" do
       expect(@purchase_address).to be_valid
     end
+    it '建物名が空でも保存できること' do
+      @purchase_address.building_name = nil
+      expect(@purchase_address).to be_valid
+    end
   end
   context '購入ができない場合' do
     it "tokenが空では登録できないこと" do
@@ -68,10 +72,7 @@ describe '住所の登録' do
       expect(@purchase_address.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
     end
 
-    it '建物名が空でも保存できること' do
-      @purchase_address.building_name = nil
-      expect(@purchase_address).to be_valid
-    end
+    
 
     it "userが空の場合登録できない" do
       @purchase_address.user_id = nil
